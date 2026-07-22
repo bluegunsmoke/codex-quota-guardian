@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a reproducible Guardian problem without attaching private Codex data.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Never attach auth.json, session JSONL files, prompts, code, cookies, or access tokens.
+  - type: input
+    id: version
+    attributes:
+      label: Guardian version
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: dropdown
+    id: freshness
+    attributes:
+      label: Data status shown
+      options: [LIVE, STALE, EXPIRED, NO DATA, Not applicable]

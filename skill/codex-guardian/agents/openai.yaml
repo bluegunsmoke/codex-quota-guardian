@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Guardian"
+  short_description: "Install and diagnose the local quota companion"
+  default_prompt: "Use $codex-guardian to install or diagnose my Codex Guardian quota companion."
