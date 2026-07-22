@@ -2,7 +2,7 @@
 
 Codex Guardian is a quiet, local-first Windows companion that shows the remaining Codex five-hour and weekly quota without repeatedly opening settings.
 
-> Project status: local release candidate. Public distribution is intentionally paused until the local test checklist passes.
+> Project status: public Windows release candidate. Download [v1.0.0-rc.14](https://github.com/bluegunsmoke/codex-quota-guardian/releases/tag/v1.0.0-rc.14).
 
 ## Why Guardian
 
@@ -44,9 +44,9 @@ Guardian requests only the current rate-limit object from the already signed-in 
 
 The packaged `win-x64` build carries both .NET and Windows App SDK dependencies and does not require a separate runtime installation. Source builds require the .NET 8 SDK.
 
-## Local release-candidate install
+## Install
 
-Extract the local test ZIP and run `CodexGuardian.App.exe`. Guardian installs no service and requests no administrator permission. At startup when data is absent or stale, and on manual refresh, Guardian can briefly invoke the already signed-in Codex app-server for one fixed read-only quota query; Codex may contact OpenAI. Regular polling remains local. Enabling “Start Guardian with Codex” adds one current-user `Run` entry for the bundled `CodexGuardian.Watcher.exe`; disabling it removes that entry and signals the watcher to exit.
+Download the Windows x64 ZIP and its `.sha256` file from [v1.0.0-rc.14](https://github.com/bluegunsmoke/codex-quota-guardian/releases/tag/v1.0.0-rc.14), verify the checksum, extract the complete ZIP, and run `CodexGuardian.App.exe`. Guardian installs no service and requests no administrator permission. At startup when data is absent or stale, and on manual refresh, Guardian can briefly invoke the already signed-in Codex app-server for one fixed read-only quota query; Codex may contact OpenAI. Regular polling remains local. Enabling “Start Guardian with Codex” adds one current-user `Run` entry for the bundled `CodexGuardian.Watcher.exe`; disabling it removes that entry and signals the watcher to exit.
 
 Set the optional user environment variable `CODEX_GUARDIAN_HOME` to an absolute path when the application and data must live on another drive. The Skill installs the complete application folder under `<home>\app` and stores local state under `<home>\data`; without an override, the home is `%USERPROFILE%\.codex-guardian`. The WPF application is deliberately folder-based rather than a self-extracting single EXE, so launching it does not create a per-version .NET bundle cache. Its optional trimmed watcher is a separate 12 MB-class executable and is verified not to expand the bundle cache. Keep all extracted files beside `CodexGuardian.App.exe`.
 
